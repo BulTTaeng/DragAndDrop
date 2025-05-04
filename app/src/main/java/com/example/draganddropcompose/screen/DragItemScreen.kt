@@ -6,7 +6,6 @@ import androidx.compose.foundation.draganddrop.dragAndDropSource
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -42,9 +41,10 @@ private fun DragSourceUi(dragSource: DragSource){
             .wrapContentWidth()
             .height(50.dp)
             .dragAndDropSource(
-                //drawDragDecoration = {
-                //    drawRect(color = Color.Red)
-                //}
+                //여기 draw scope 에서 dragging 중일 때 UI 를 구성 가능하다.
+                drawDragDecoration = {
+                    drawRect(color = Color.Red)
+                }
             ){
                 detectTapGestures(
                     onPress = {

@@ -39,7 +39,7 @@ fun TargetScreen(modifier: Modifier) {
     FlowRow(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(10.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp)
+        horizontalArrangement = Arrangement.spacedBy(10.dp),
     ) {
         targetList.forEachIndexed { index, targetModel ->
             TargetModelUi(targetModel) {
@@ -48,7 +48,6 @@ fun TargetScreen(modifier: Modifier) {
             Spacer(Modifier.width(10.dp))
         }
     }
-
 }
 
 @OptIn(ExperimentalFoundationApi::class)
