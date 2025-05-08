@@ -10,9 +10,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.draganddropcompose.ui.viewModel.MainViewModel
 
 @Composable
-fun MainScreen(innerPaddingValues: PaddingValues) {
+fun MainScreen(
+    innerPaddingValues: PaddingValues,
+    viewModel: MainViewModel = hiltViewModel()
+    ) {
     Column(modifier = Modifier.fillMaxSize().padding(innerPaddingValues).padding(20.dp)) {
         TargetScreen(Modifier.weight(1f).fillMaxWidth())
 
