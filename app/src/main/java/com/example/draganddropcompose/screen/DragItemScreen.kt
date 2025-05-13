@@ -19,12 +19,7 @@ import com.example.draganddropcompose.model.DragSource
 
 
 @Composable
-fun DragItemScreen(modifier: Modifier) {
-    val dragSourceList = listOf(
-        DragSource("aaaaaaaaaaa"),
-        DragSource("bbbbbbbbbbb"),
-        DragSource("ccccccccccc")
-    )
+fun DragItemScreen(modifier: Modifier, dragSourceList: List<DragSource>) {
     LazyColumn(modifier) {
         dragSourceList.forEach{
             item { DragSourceUi(it) }

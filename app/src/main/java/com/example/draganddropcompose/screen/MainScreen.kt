@@ -17,12 +17,14 @@ import com.example.draganddropcompose.ui.viewModel.MainViewModel
 fun MainScreen(
     innerPaddingValues: PaddingValues,
     viewModel: MainViewModel = hiltViewModel()
-    ) {
+) {
     Column(modifier = Modifier.fillMaxSize().padding(innerPaddingValues).padding(20.dp)) {
-        TargetScreen(Modifier.weight(1f).fillMaxWidth())
+        TargetScreen(Modifier.weight(1f).fillMaxWidth(), viewModel.targetList) { idx, str ->
+            viewModel.addTargetList(idx, str)
+        }
 
         Spacer(Modifier.height(30.dp))
 
-        DragItemScreen(Modifier.weight(1f).fillMaxWidth())
+        DragItemScreen(Modifier.weight(1f).fillMaxWidth(), viewModel.dragSourceList)
     }
 }

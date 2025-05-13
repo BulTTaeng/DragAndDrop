@@ -29,13 +29,11 @@ import com.example.draganddropcompose.model.TargetModel
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun TargetScreen(modifier: Modifier) {
-    val targetList: List<TargetModel> = listOf(
-        TargetModel("first", "first subtitle"),
-        TargetModel("second", "second subtitle"),
-        TargetModel("third", "third subtitle")
-    )
-
+fun TargetScreen(
+    modifier: Modifier,
+    targetList: List<TargetModel>,
+    updateTargetList: (Int, String) -> Unit
+) {
     FlowRow(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -43,7 +41,7 @@ fun TargetScreen(modifier: Modifier) {
     ) {
         targetList.forEachIndexed { index, targetModel ->
             TargetModelUi(targetModel) {
-                targetList.getOrNull(index)?.insideStringList?.add(it)
+                updateTargetList(index, it)
             }
             Spacer(Modifier.width(10.dp))
         }
